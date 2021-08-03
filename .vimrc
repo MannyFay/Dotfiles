@@ -26,6 +26,13 @@
 " Turn on: 1
 " Turn off: 0
 
+"------------------------------------"
+"                 Keys               "
+"------------------------------------"
+" <C> is ctrl key.
+" <Esc> is esc key.
+" <Leader> is \ key.
+
 "------------------------------------------------------------------------------"
 "                                 AUTO-COMMANDS                                "
 "------------------------------------------------------------------------------"
@@ -137,6 +144,12 @@ noremap dl dd
 
 " Delete from (df) cursor till end of line (standard is D).
 noremap df D
+
+" Line above.
+noremap la O<Esc>
+
+" Line below.
+noremap lb o<Esc>
 
 "------------------------------------"
 "        Normal Mode --> Motion      "

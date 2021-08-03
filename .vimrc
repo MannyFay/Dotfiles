@@ -127,16 +127,16 @@ nmap <Leader>cb :bd
 " ,cb is close buffer.
 
 "------------------------------------"
-"       Normal Mode --> Delete       "
+"        Normal Mode --> Edit        "
 "------------------------------------"
+" Delete sign (d) on cursor (standard is x).
 noremap d x
-" d is delete sign on cursor (standard is x).
 
+" Delete line (dl) is delete line (standard is dd).
 noremap dl dd
-" dl is delete line (standard is dd).
 
+" Delete from (df) cursor till end of line (standard is D).
 noremap df D
-" df is delete from cursor till end of line (standard is D).
 
 "------------------------------------"
 "        Normal Mode --> Motion      "

@@ -1,0 +1,213 @@
+"------------------------------------------------------------------------------"
+"                                  EXPLANATION                                 "
+"------------------------------------------------------------------------------"
+
+" In his file are all self made settings for Vim editor.
+"
+" If there are JetBrains IDEs and a VimPlug-Plugin is installed, there is a
+" .ideavimrc. It maps to the regular .vimrc.
+
+
+
+"------------------------------------"
+"          External-Files            "
+"------------------------------------"
+
+" To keep this file slim as possible, mount extensions from other files.
+
+
+"so ~/.vim/plugins.vim
+" Load plugins from plugins.vim file.
+" To install plugins use: :PlugInstall
+
+
+"------------------------------------"
+"               Mappings             "
+"------------------------------------"
+
+" Mapping for normal mode: nmap
+" Mapping for insert mode: imap
+" Mapping for keys       : noremap
+
+
+
+"------------------------------------"
+"               Switches             "
+"------------------------------------"
+
+" Turn on: 1
+" Turn off: 0
+
+
+
+"------------------------------------------------------------------------------"
+"                                 AUTO-COMMANDS                                "
+"------------------------------------------------------------------------------"
+
+"autocmd TextChanged,TextChangedI <buffer> silent write
+" Auto save file everytime something where changed.
+
+augroup autosourcing
+	autocmd!
+	autocmd BufWritePost .vimrc source %
+augroup END
+" Automatically source .vimrc on safe.
+
+
+"------------------------------------------------------------------------------"
+"                                 ENVIRONMENT                                  "
+"------------------------------------------------------------------------------"
+
+"------------------------------------"
+"      Environment --> Settings      "
+"------------------------------------"
+
+colorscheme darkblue
+" Set the color theme of VIM.
+
+filetype plugin indent on
+" Set specific text highlights in case of the file type.
+
+set linespace=15
+" Set linespacings (only MacVim, for terminal do it in terminal preferences).
+
+set number
+" Display line number on the right hand.
+
+set relativenumber
+" Display the relative line number before and above the actual line.
+" Are both active, they become hybrid.
+
+set t_CO=256
+" Use 256 colors for Terminal Vim.
+
+set nocompatible
+" Disable overwriting from VI to VIM.
+
+set history=1000
+" Number of command line history entries.
+
+set scrolloff=7
+" Start to scroll if there is a space of n lines.
+
+set wildmenu
+" Show a line with autocomplete opportunities (shift + tab to walk)
+
+set foldcolumn=1
+" Show a column for folding sections on the right hand.
+
+set undofile
+" Safe undo steps over reboot.
+
+set undodir=$HOME/vimundo/
+" Mount undo directory.
+
+set undolevels=1000
+" Number of safed undo steps.
+
+:set guifont=Menlo:h14
+" Set font and font size (only MacVim, for terminal do it in terminal preferences).
+
+"------------------------------------------------------------------------------"
+"                                 NORMAL MODE                                  "
+"------------------------------------------------------------------------------"
+
+"------------------------------------"
+"       Normal Mode --> Delete       "
+"------------------------------------"
+noremap d x
+" d is delete sign on cursor (standard is x).
+
+noremap dl dd
+" dl is delete line (standard is dd).
+
+noremap df D
+" df is delete from cursor till end of line (standard is D).
+
+"------------------------------------"
+"       Delete --> Explanations      "
+"------------------------------------"
+
+" Delete sign on cursor  : x
+" Delete whole line      : dd
+" Delete till end of line: D
+
+
+
+"------------------------------------"
+"         Delete --> Mappings        "
+"------------------------------------"
+
+
+
+
+"------------------------------------------------------------------------------"
+"                                    MOTION                                    "
+"------------------------------------------------------------------------------"
+
+"------------------------------------"
+"         Motion --> Explanation     "
+"------------------------------------"
+
+" Move left : h
+" Move down : j
+" Move up   : k
+" Move right: l
+
+
+"------------------------------------"
+"         Motion --> Settings        "
+"------------------------------------"
+
+noremap j h
+" j is move left.
+
+noremap ; l
+" ; is move right.
+
+noremap l j
+" ; is move down.
+
+
+
+"------------------------------------"
+"          Edit --> Settings         "
+"------------------------------------"
+
+set autoindent
+" Set cursor on a line wrap automatically into indent level.
+
+set encoding=utf-8
+" Activates Unicode UTF-8 encoding.
+
+set tabstop=4
+" Set the size of tab stops.
+
+syntax enable
+" Syntax highlighting in case of file type.
+
+set tw=72
+" Set text wrap automatically at sign number ...
+" 72 is perfect size for GitLab and GitHub.
+
+set backspace=indent,eol,start
+" Delete with backspace in insert mode.
+
+
+
+
+
+
+
+let mapleader = ','
+" Set <Leader> to , (standard is \).
+
+"------------------------------------"
+"  Command Line Mode --> Mappings    "
+"------------------------------------"
+
+nmap <Leader>vrc :tabedit $MYVIMRC<cr>
+" ovrc is open ~/.vimrc file.
+
+nmap <Leader>cb :bd
+" cb is close buffer.

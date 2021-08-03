@@ -1,0 +1,331 @@
+#---------------------------------------------------------------------------#
+#                                EXPLANATION                                #
+#---------------------------------------------------------------------------#
+
+# In these file are all aliases for command line tools.
+
+# They can be mounted in .zshrc to with these snippet:
+#if [ -f ~/.bash_aliases ]; then
+#    . ~/.bash_aliases
+#fi
+
+# If there is the need to use the aliases immediatly, run this in Terminal:
+# source ~/.bash_aliases
+
+
+#---------------------------------------------------------------------------#
+#                                   DOCKER                                  #
+#---------------------------------------------------------------------------#
+
+#-------------------------------------#
+#             Explanation             #
+#-------------------------------------#
+
+# Every Docker command alias starts with d for docker doSomething.
+
+# Docker uses sudo previleges. To make Docker sudo, create group:
+# sudo groupadd docker
+
+# Add the actual user to the group:
+# sudo usermod -aG docker $USER
+
+# Then safe everything and logout from system. Lock in again.
+
+#-------------------------------------#
+#         Docker -> Standards         #
+#-------------------------------------#
+
+alias dlc='docker'
+# List Docker commands.
+
+#-------------------------------------#
+#          Docker -> Compose          #
+#-------------------------------------#
+
+alias dcu='docker-compose up -d'
+# Compose up.
+
+#-------------------------------------#
+#         Docker -> Containers        #
+#-------------------------------------#
+
+alias dcla='docker container ps -a -s'
+# List all containers.
+
+alias dcg='docker container start'
+# Start container (go).
+
+alias dci='docker container inspect'
+# Inspect a Docker container.
+
+alias dcs='docker container stop'
+# Stop container.
+
+alias dcsa='docker container stop $(docker ps -a -q)'
+# Stop all containers.
+
+alias dcd='docker container rm -f'
+# Delete container.
+
+alias dcda='docker rm -f $(docker ps -a -q)'
+# Delete all containers.
+
+alias dcrl='docker exec -i -t'
+# Root login container.
+
+#-------------------------------------#
+#           Docker -> Images          #
+#-------------------------------------#
+
+alias dila='docker images -a --format'
+# List all images.
+
+alias dild='docker images -f dangling=true'
+# List dangling images.
+
+alias didd='docker rmi $(docker images -f dangling=true -q)'
+# Delete dangling images.
+
+alias dii='docker image inspect'
+# Inspect image.
+
+alias did='docker rmi -f'
+# Delete an image.
+
+alias dida='docker rmi -f $(docker images -a -q)'
+# Delete all images.
+
+#-------------------------------------#
+#          Docker -> Networks         #
+#-------------------------------------#
+
+alias dnlc='docker network'
+# List network commands.
+
+alias dnla='docker network ls'
+# List all networks.
+
+alias dni='docker network inspect'
+# Inspect a network.
+
+alias dnd='docker network rm -f'
+# Delete a network.
+
+alias dnda='docker network prune'
+# Delete all networks.
+
+#-------------------------------------#
+#           Docker -> Volumes         #
+#-------------------------------------#
+
+alias dvlc='docker volume'
+# List volume commands.
+
+alias dvla='docker volume ls'
+# List all volumes.
+
+alias dvi='docker volume inspect'
+# Inspect a volume.
+
+alias dvsd='docker volume ls -q -f dangling=true'
+# Show dangling volumes (volumes without containers).
+
+alias dvsod='du -h --max O admin:///var/lib/docker/volumes/$(docker volume ls -q -f dangling=true'
+# Show size of dangling volumes.
+
+alias dvdd='docker volume rm $(docker volume ls -qf dangling=true)'
+# Delete dangling volumes.
+
+alias dvd='docker volume rm -f'
+# Delete volume.
+
+alias dvda='docker volume rm $(docker volume ls -qf)'
+# Delete all volumes.
+
+
+#---------------------------------------------------------------------------#
+#                                    GIT                                    #
+#---------------------------------------------------------------------------#
+
+#-------------------------------------#
+#             Explanation             #
+#-------------------------------------#
+
+# Every Git command alias starts with g (git).
+
+#-------------------------------------#
+#          Git -> Standards           #
+#-------------------------------------#
+
+alias glc='git'
+# Shows Git commands.
+
+alias gwu='git status'
+# Shows, what's up on Git.
+
+alias gswu='git status -s'
+# Shows, short what's up on Git.
+# A  : Added (file are in staging area)
+# ?? : Untracked (unwatched file)
+# M : Changed (file is changed and in the staging area) (there is a space before M)
+# M  : Unstaged (file is not in staging area) (there is a space behind M)
+
+alias gsch='git log --oneline --graph --decorate --all'
+# Show commit history (very pretty).
+
+alias gc='git clone'
+# Clone repository (add URL).
+
+#-------------------------------------#
+#           Git -> Branching          #
+#-------------------------------------#
+
+alias gbsa='git branch -a'
+# Show all branches (quit with q).
+
+alias gbsl='git branch'
+# Show local branches (quit with q).
+
+alias gbcl='git checkout'
+# Checkout local branch (add branchName).
+
+alias gbcr='git checkout --track'
+# Checkout repo branch (add remoteName/branchName)
+
+alias gbfn='git branch'
+# Fork new branch from actual branch (add branchName).
+# Fork new branch from source branch (add branchName sourceBranch).
+
+alias gbfnc='git checkout -b'
+# Fork new branch from actual branch and checkout (add branchName).
+# Fork new branch from source branch and checkout (add branchName sourceBranch).
+
+alias gbd='git branch -d'
+# Delete branch (add branchName).
+
+alias gbfd='git branch -D'
+# Force delete branch (add branchName).
+
+#-------------------------------------#
+#           Git -> Commiting          #
+#-------------------------------------#
+
+alias gci='git commit --allow-empty -m "Initial commit"'
+# Initial commit.
+
+alias gcc='git commit'
+# Commit changes.
+
+alias gcm='git commit -m'
+# Commit with short message.
+
+alias gcwip='git commit -m "wip"'
+# Commit with short message 'Work In Progress'.
+
+alias gccl='git commit --amend'
+# Change last commit (before push).
+
+#-------------------------------------#
+#          Git -> Differences         #
+#-------------------------------------#
+
+alias gdcf='git diff'
+# Compare files (add file name).
+
+#-------------------------------------#
+#           Git -> Dotfiles           #
+#-------------------------------------#
+
+alias gdot='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+# gdot in home directory is like git in git directories.
+
+#-------------------------------------#
+#        Git -> Pulling/Pushing       #
+#-------------------------------------#
+
+alias gpp='git pull'
+# Pull from repository.
+
+alias gpf='git fetch'
+# Fetch from repository.
+
+alias gpc='git push'
+# Push commits.
+
+alias gptm='git push origin master'
+# Push to master branch.
+
+alias gptd='git push origin develop'
+# Push to develop branch.
+
+alias gps='git stash'
+# Stash.
+
+alias gpps='git stash pop'
+# Pop stash.
+
+#-------------------------------------#
+#            Git -> Staging           #
+#-------------------------------------#
+
+alias gsf='git add'
+# Stage file (add file or path).
+
+alias gsuf='git rm --cached'
+# Unstage something (add file or path).
+
+alias gsp='git add -p'
+# Stage parts of file (add file).
+
+alias gsup='git reset -p'
+# Unstage parts of file (add file).
+
+alias gse='git add .'
+# Stage everything.
+
+alias gsue='git reset'
+# Unstage everything.
+
+#---------------------------------------------------------------------------#
+#                                  TERMINAL                                 #
+#---------------------------------------------------------------------------#
+
+alias tl='ls -al'
+# List al directory items.
+
+alias tnf='touch'
+# New file.
+
+alias tdf='rm'
+# Delete file.
+
+alias tnd='mkdir'
+# New directory.
+
+alias tdd='rm -rf'
+# Delete directory.
+
+#---------------------------------------------------------------------------#
+#                                  COMPOSER                                 #
+#---------------------------------------------------------------------------#
+
+#---------------------------------------------------------------------------#
+#                                  LARAVEL                                  #
+#---------------------------------------------------------------------------#
+
+#-------------------------------------#
+#          Laravel -> Artisan         #
+#-------------------------------------#
+
+alias lalc='php artisan list'
+# List commands.
+
+alias lasdb='php artisan db:seed'
+# Seed database with random records.
+
+#-------------------------------------#
+#          Laravel -> Tinker          #
+#-------------------------------------#
+
+alias lst='php artisan tinker'
+# Start Tinker CLI.

@@ -1,49 +1,34 @@
 "------------------------------------------------------------------------------"
 "                                  EXPLANATION                                 "
 "------------------------------------------------------------------------------"
-
 " In his file are all self made settings for Vim editor.
-"
 " If there are JetBrains IDEs and a VimPlug-Plugin is installed, there is a
 " .ideavimrc. It maps to the regular .vimrc.
-
-
 
 "------------------------------------"
 "          External-Files            "
 "------------------------------------"
-
 " To keep this file slim as possible, mount extensions from other files.
-
-
 "so ~/.vim/plugins.vim
 " Load plugins from plugins.vim file.
 " To install plugins use: :PlugInstall
 
-
 "------------------------------------"
 "               Mappings             "
 "------------------------------------"
-
 " Mapping for normal mode: nmap
 " Mapping for insert mode: imap
 " Mapping for keys       : noremap
 
-
-
 "------------------------------------"
 "               Switches             "
 "------------------------------------"
-
 " Turn on: 1
 " Turn off: 0
-
-
 
 "------------------------------------------------------------------------------"
 "                                 AUTO-COMMANDS                                "
 "------------------------------------------------------------------------------"
-
 "autocmd TextChanged,TextChangedI <buffer> silent write
 " Auto save file everytime something where changed.
 
@@ -53,7 +38,6 @@ augroup autosourcing
 augroup END
 " Automatically source .vimrc on safe.
 
-
 "------------------------------------------------------------------------------"
 "                                 ENVIRONMENT                                  "
 "------------------------------------------------------------------------------"
@@ -61,7 +45,6 @@ augroup END
 "------------------------------------"
 "      Environment --> Settings      "
 "------------------------------------"
-
 colorscheme darkblue
 " Set the color theme of VIM.
 
@@ -113,6 +96,15 @@ set undolevels=1000
 "------------------------------------------------------------------------------"
 
 "------------------------------------"
+"    Normal Mode --> Command Line    "
+"------------------------------------"
+nmap <Leader>vrc :tabedit $MYVIMRC<cr>
+" ,vrc is open ~/.vimrc file.
+
+nmap <Leader>cb :bd
+" cb is close buffer.
+
+"------------------------------------"
 "       Normal Mode --> Delete       "
 "------------------------------------"
 noremap d x
@@ -125,39 +117,12 @@ noremap df D
 " df is delete from cursor till end of line (standard is D).
 
 "------------------------------------"
-"       Delete --> Explanations      "
+"        Normal Mode --> Motion      "
 "------------------------------------"
-
-" Delete sign on cursor  : x
-" Delete whole line      : dd
-" Delete till end of line: D
-
-
-
-"------------------------------------"
-"         Delete --> Mappings        "
-"------------------------------------"
-
-
-
-
-"------------------------------------------------------------------------------"
-"                                    MOTION                                    "
-"------------------------------------------------------------------------------"
-
-"------------------------------------"
-"         Motion --> Explanation     "
-"------------------------------------"
-
 " Move left : h
 " Move down : j
 " Move up   : k
 " Move right: l
-
-
-"------------------------------------"
-"         Motion --> Settings        "
-"------------------------------------"
 
 noremap j h
 " j is move left.
@@ -167,8 +132,6 @@ noremap ; l
 
 noremap l j
 " ; is move down.
-
-
 
 "------------------------------------"
 "          Edit --> Settings         "
@@ -193,21 +156,5 @@ set tw=72
 set backspace=indent,eol,start
 " Delete with backspace in insert mode.
 
-
-
-
-
-
-
 let mapleader = ','
 " Set <Leader> to , (standard is \).
-
-"------------------------------------"
-"  Command Line Mode --> Mappings    "
-"------------------------------------"
-
-nmap <Leader>vrc :tabedit $MYVIMRC<cr>
-" ovrc is open ~/.vimrc file.
-
-nmap <Leader>cb :bd
-" cb is close buffer.

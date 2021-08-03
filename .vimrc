@@ -166,4 +166,35 @@ noremap ; l
 " ; is move right.
 
 noremap l j
-" ; is move down.
+" l is move down.
+
+"------------------------------------"
+"        Normal Mode --> Search      "
+"------------------------------------"
+
+nmap <Leader><space> :nohlsearch<cr>
+" Highlight removal with ,spacekey
+
+set hlsearch
+" Highlight results of search terms.
+
+set incsearch
+" Highlight signs while searching.
+
+"------------------------------------------------------------------------------"
+"                                 VISUAL MODE                                  "
+"------------------------------------------------------------------------------"
+
+"------------------------------------"
+"        Normal Mode --> Search      "
+"------------------------------------"
+" To mark something, you have to enter from normal mode to visual mode.
+" Enter visual mode      : v
+" Enter visual line mode : V
+" Enter visual block mode: ctrl + v
+
+noremap vl V
+" vl is enter visual line mode.
+
+noremap vb <C-v>
+" vb is enter visual block mode.
